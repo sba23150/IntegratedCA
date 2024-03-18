@@ -11,6 +11,7 @@ package integratedca;
  */
 
 public class Students {
+    String name;
     String email;
     String gender;
     String Course;
@@ -18,13 +19,18 @@ public class Students {
     String Enrolment;
     String studentNumber;
     
-    public Students (String email, String gender, String Course, String Registration, String Enrolment,String studentNumber){
+    public Students (){
+        this.name = name;
         this.email = email;
         this.gender = gender;
         this.Course = Course;
         this.Registration = Registration;
         this.Enrolment = Enrolment;
         this.studentNumber = studentNumber;
+    }
+    
+    public String getname(){
+        return name;
     }
     
     public String getemail(){

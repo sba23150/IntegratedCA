@@ -23,18 +23,29 @@ public class DBConnector {
     private final String DB_URL = "jdbc:mysql://localhost:3306/CA2";
     private final String USER = "pooa2024";
     private final String PASSWORD = "pooa2024";
-   
-//      tried to create DB    
-//    public void createDB(){
-//        try {
-//            Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-//            Statement stmt = conn.createStatement();
-//            stmt.execute("CREATE DATABASE bank;");
-//            System.out.println("Database sucessfully created;");
-//            conn.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    };;
     
-}
+//    Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+//    Statement stmt = conn.createStatement();
+//    ResultSet rs = stmt.executeQuery("SELECT * from Students");
+//    
+//        ResultSet rsStudents = db.createStatement().executeQuery("SELECT * FROM STUDENTS");
+//        
+//        while (rsStudents.next()){
+//        System.out.println("Name: " + rsStudents.getString(""));
+//        }
+   
+    public ArrayList<Students> getStudents() throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+        PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM Students;");
+        
+        ResultSet rs = preparedStatement.executeQuery();
+//        rs.next();
+        ArrayList<Students> studentsList = new ArrayList<>();
+        
+        while (rs.next()) {
+            studentsList.add(new Students());
+        }
+        conn.close();
+        return studentsList;
+    }
+}  
