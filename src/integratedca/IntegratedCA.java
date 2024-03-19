@@ -24,19 +24,22 @@ public class IntegratedCA {
 
         // Call DB Connection
         DBConnector db = new DBConnector();
-        // db.createDB();
-
+        //db.createDB();
+        
+            //        try {
+//            ArrayList<Students> studentsList = db.getStudents();
+//            for (Students student : studentsList) {
+//                System.out.println(studentsList);
+//            }   
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
         try {
-            ArrayList<Students> studentsList = db.getStudents();
-            
-            for (Students student : studentsList) {
-                System.out.println(studentsList);
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
+            Students firstStudent = db.getStudents(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntegratedCA.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
     }
     
 }

@@ -103,3 +103,4 @@ SELECT * FROM students;
 
 /*imported lecturers table with data about 20 lecturers, their names, role and type of class they teach - random data*/
 
+SELECT * FROM feedback;

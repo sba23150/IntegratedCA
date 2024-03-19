@@ -19,7 +19,7 @@ public class Students {
     String Enrolment;
     String studentNumber;
     
-    public Students (){
+    public Students (String name, String email, String gender, String Course, String Registration, String Enrolment, String studentNumber){
         this.name = name;
         this.email = email;
         this.gender = gender;

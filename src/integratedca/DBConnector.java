@@ -20,32 +20,54 @@ import java.util.ArrayList;
 
 //database connection
 public class DBConnector {
-    private final String DB_URL = "jdbc:mysql://localhost:3306/CA2";
+    private final String DB_URL = "jdbc:mysql://localhost";
     private final String USER = "pooa2024";
     private final String PASSWORD = "pooa2024";
+       
+    public void createDB(){
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            Statement stmt = conn.createStatement();
+            stmt.execute("CREATE DATABASE integratedCA;");
+            System.out.println("Database sucessfully created;");
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
-//    Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-//    Statement stmt = conn.createStatement();
-//    ResultSet rs = stmt.executeQuery("SELECT * from Students");
-//    
-//        ResultSet rsStudents = db.createStatement().executeQuery("SELECT * FROM STUDENTS");
-//        
-//        while (rsStudents.next()){
-//        System.out.println("Name: " + rsStudents.getString(""));
-//        }
-   
-    public ArrayList<Students> getStudents() throws SQLException {
+    //create a method to run all data from students table
+    public Students getStudents(int id) throws SQLException {
         Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-        PreparedStatement preparedStatement = conn.prepareStatement("SELECT * FROM Students;");
+        Statement stmt = conn.createStatement();
+        stmt.execute("USE integratedCA;");
+        ResultSet rs = stmt.executeQuery("SELECT * from students where id="+id);
         
-        ResultSet rs = preparedStatement.executeQuery();
-//        rs.next();
-        ArrayList<Students> studentsList = new ArrayList<>();
+        rs.next();
+        String name = rs.getString("name");
+        String email = rs.getString("email");
+        String gender = rs.getString("gender");
+        String Course = rs.getString("Course");
+        String Registration = rs.getString("Registration");
+        String Enrolment = rs.getString("Enrolment");
+        String studentNumber = rs.getString("studentNumber");
+        
+        conn.close();
+        return new Students(name, email, gender, Course, Registration, Enrolment, studentNumber);
+        
+    }
+    
+    public ArrayList<Lecturers> getLecturers() throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from lecturers;");
+
+        ArrayList<Lecturers> lecturersList = new ArrayList<>();
         
         while (rs.next()) {
-            studentsList.add(new Students());
+            lecturersList.add(new Lecturers());
         }
         conn.close();
-        return studentsList;
+        return lecturersList;
     }
 }  

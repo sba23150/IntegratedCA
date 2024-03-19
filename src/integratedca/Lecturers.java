@@ -15,7 +15,7 @@ public class Lecturers {
     String Role;
     String TypeClass;
     
-    public Lecturers (String Lecturer, String Role, String TypeClass){
+    public Lecturers (){
         this.Lecturer = Lecturer;
         this.Role = Role;
         this.TypeClass = TypeClass;
