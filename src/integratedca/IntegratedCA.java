@@ -55,31 +55,27 @@ public class IntegratedCA {
             System.out.println("Enter password:");
             String passwordInput = scanner.nextLine();
 
-            // Check if the entered username and password match the Admin's credentials               
-            if ((usernameInput.equals(admin.getUsername()) && passwordInput.equals(admin.getPassword()))) {
+            // Check if the entered username and password match the Admin's credentials
+            if (usernameInput.equals(admin.getUsername()) && passwordInput.equals(admin.getPassword())) {
                 System.out.println("Login successful!");
-                // call the Admin class
-                // Admin admin = new Admin(usernameInput, passwordInput);
                 loggedIn = true;
+                // call the Admin class
             } 
             // Check if the entered username and password match the Office's credentials 
-                if ((usernameInput.equals(office.getUsername()) && passwordInput.equals(office.getPassword()))){
+            else if (usernameInput.equals(office.getUsername()) && passwordInput.equals(office.getPassword())) {
                 System.out.println("Login successful!");
-                // call the Office class
-                // Office officeStaff = new Office(usernameInput, passwordInput);
                 loggedIn = true;
+                // call the Office class
             } 
             // Check if the entered username and password match the Lecturer's credentials 
-                if (usernameInput.equals(lecturer.getUsername()) && passwordInput.equals(lecturer.getPassword())){
+            else if (usernameInput.equals(lecturer.getUsername()) && passwordInput.equals(lecturer.getPassword())) {
                 System.out.println("Login successful!");
-                // call the Lecturer class
-                // Lecturer lecturer = new Lecturer(usernameInput, passwordInput);
                 loggedIn = true;
-            }  else {
+                // call the Lecturer class
+            } else {
                 System.out.println("Invalid username or password. Please try again.");
             }
         }
-
         // Close scanner
         scanner.close();
     }

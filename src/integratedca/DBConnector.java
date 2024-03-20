@@ -52,29 +52,4 @@ public class DBConnector {
         System.out.println("Database connetion successful");
     }   
             
-//        String email = rs.getString("email");
-//        String gender = rs.getString("gender");
-//        String Course = rs.getString("Course");
-//        String Registration = rs.getString("Registration");
-//        String Enrolment = rs.getString("Enrolment");
-//        String studentNumber = rs.getString("studentNumber");
-//        
-//        conn.close();
-//        return new Students(name, email, gender, Course, Registration, Enrolment, studentNumber);
-//        
-    
-    
-//    public ArrayList<Lecturers> getLecturers() throws SQLException {
-//        Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-//        Statement stmt = conn.createStatement();
-//        ResultSet rs = stmt.executeQuery("SELECT * from lecturers;");
-//
-//        ArrayList<Lecturers> lecturersList = new ArrayList<>();
-//        
-//        while (rs.next()) {
-//            lecturersList.add(new Lecturers());
-//        }
-//        conn.close();
-//        return lecturersList;
-//    }
 }  
