@@ -37,11 +37,11 @@ public class DBConnector {
     }
     
     //create a method to run all data from students table
-    public void getStudents(int id) throws SQLException {
+    public void getStudents() throws SQLException {
         try{
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * from students id ="+id);
+            ResultSet rs = stmt.executeQuery("SELECT * from students;");
             while (rs.next()){
                 String name = rs.getString("name");
                 System.out.println(name);
@@ -49,6 +49,7 @@ public class DBConnector {
         } catch (Exception e){
             System.out.println("error");
         }
+        System.out.println("Database connetion successful");
     }   
             
 //        String email = rs.getString("email");

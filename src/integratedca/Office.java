@@ -1,29 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package integratedca;
 
 /**
  *
- * @author Tatiana Mota - sba23150
- * GitHub: https://github.com/sba23150/IntegratedCA.git
- * Lecturer
-■ Can generate a Lecturer Report for themselves
+ * @author User
+ * Office
+■ Can generate all types of reports
 ■ Can change their own username and password
  */
-
-public class Lecturers {
+public class Office {
     private String username;
     private String password;
 
     // Constructor
-    public Lecturers() {
-        this.username = "lecturer";
-        this.password = "lecturer";
-        this.Lecturer = Lecturer;
-        this.Role = Role;
-        this.TypeClass = TypeClass;
+    public Office() {
+        this.username = "office";
+        this.password = "office";
     }
 
      // Getters and setters for username and password
@@ -41,24 +32,6 @@ public class Lecturers {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-    
-    //defining variables to read table columns
-    String Lecturer;
-    String Role;
-    String TypeClass;
-    
-    
-    public String getLecturer(){
-        return Lecturer;
-    }
-    
-    public String getRole(){
-        return Role;
-    }
-    
-    public String getTypeClass(){
-        return TypeClass;
     }
 
     
@@ -104,7 +77,4 @@ public class Lecturers {
 //    }
     // Close scanner
     //    scanner.close();
-    
-    
-    
 }

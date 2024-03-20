@@ -4,26 +4,27 @@
  */
 package integratedca;
 
+import java.util.Scanner;
+
 /**
  *
- * @author Tatiana Mota - sba23150
- * GitHub: https://github.com/sba23150/IntegratedCA.git
- * Lecturer
-■ Can generate a Lecturer Report for themselves
+ * @author User
+ * Admin
+■ The only user available at the start
+■ Username: admin
+■ Password: java
+■ Can add, modify and delete other users (including username, password and role)
 ■ Can change their own username and password
+■ Cannot generate reports
  */
-
-public class Lecturers {
+public class Admin {
     private String username;
     private String password;
 
     // Constructor
-    public Lecturers() {
-        this.username = "lecturer";
-        this.password = "lecturer";
-        this.Lecturer = Lecturer;
-        this.Role = Role;
-        this.TypeClass = TypeClass;
+    public Admin() {
+        this.username = "admin";
+        this.password = "java";
     }
 
      // Getters and setters for username and password
@@ -31,35 +32,10 @@ public class Lecturers {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
-    //defining variables to read table columns
-    String Lecturer;
-    String Role;
-    String TypeClass;
-    
-    
-    public String getLecturer(){
-        return Lecturer;
-    }
-    
-    public String getRole(){
-        return Role;
-    }
-    
-    public String getTypeClass(){
-        return TypeClass;
-    }
 
     
     // Menu loop
@@ -104,7 +80,4 @@ public class Lecturers {
 //    }
     // Close scanner
     //    scanner.close();
-    
-    
-    
 }
