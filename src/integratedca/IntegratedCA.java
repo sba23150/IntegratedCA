@@ -4,8 +4,11 @@
  */
 package integratedca;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +29,7 @@ public class IntegratedCA {
         DBConnector db = new DBConnector();
         //db.createDB();
         
-            //        try {
+//        try {
 //            ArrayList<Students> studentsList = db.getStudents();
 //            for (Students student : studentsList) {
 //                System.out.println(studentsList);
@@ -34,12 +37,11 @@ public class IntegratedCA {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-//
-        try {
-            Students firstStudent = db.getStudents(1);
-        } catch (SQLException ex) {
-            Logger.getLogger(IntegratedCA.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+
+            
+            System.out.println(db.getStudents(1));
+        
     }
     
 }
