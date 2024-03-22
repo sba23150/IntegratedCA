@@ -28,14 +28,14 @@ public class IntegratedCA {
 
         // Call DB Connection
         
-        try {
-            DBConnector db = new DBConnector();
-            db.getStudents();
-            //create database 'integratedCA'
-            //db.createDB();
-        } catch (SQLException ex) {
-            Logger.getLogger(IntegratedCA.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            DBConnector db = new DBConnector();
+//            db.getStudents();
+//            //create database 'integratedCA'
+//            //db.createDB();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(IntegratedCA.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
         
         
@@ -60,6 +60,7 @@ public class IntegratedCA {
                 System.out.println("Login successful!");
                 loggedIn = true;
                 // call the Admin class
+                admin.displayMenu();
             } 
             // Check if the entered username and password match the Office's credentials 
             else if (usernameInput.equals(office.getUsername()) && passwordInput.equals(office.getPassword())) {
