@@ -70,7 +70,7 @@ public class Lecturers {
         
         while (!exitMenu) {
             System.out.println("\nMenu:");
-            System.out.println("1. Add, modify and delete other users");
+            System.out.println("1. Generate report.");
             System.out.println("2. Change your own username and password");
             System.out.println("3. Exit");
             System.out.println("Enter your choice:");
@@ -80,8 +80,9 @@ public class Lecturers {
 
             switch (choice) {
                 case 1:
-                    // Option 1: Add, modify, delete users
-                    System.out.println("Add, modify and delete other users");
+                    // Option 1: Generate report as per lecturer name
+                    System.out.println("Enter your name to generate your report:");
+                    String lecturerName = scanner.nextLine();
                     // Add code here
                     exitMenu = true;
                     break;
