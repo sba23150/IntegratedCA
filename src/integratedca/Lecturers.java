@@ -4,6 +4,8 @@
  */
 package integratedca;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Tatiana Mota - sba23150
@@ -61,50 +63,53 @@ public class Lecturers {
         return TypeClass;
     }
 
-    
-    // Menu loop
-    //Scanner scanner = new Scanner(System.in);
-//    boolean exit = false;
-//    while (!exit) {
-//        System.out.println("\nMenu:");
-//        System.out.println("1. View current staff");
-//        System.out.println("2. Add new staff");
-//        System.out.println("3. Exit");
-//        System.out.println("Enter your choice:");
-//
-//        int choice = scanner.nextInt();
-//        scanner.nextLine(); 
-//
-//        switch (choice) {
-//            case 1:
-//                System.out.println("Current Staff:");
-//                // Call the listEmployees method to display current staff
-//                company.listEmployees(0); // You can pass any value as parameter for this example
-//                break;
-//            case 2:
-//                // Add new staff
-//                System.out.println("Enter employee name:");
-//                String name = scanner.nextLine();
-//                System.out.println("Enter employee email:");
-//                String email = scanner.nextLine();
-//                scanner.nextLine(); 
-//
-//                // Create a new employee and add it to the company
-//                Employee newEmployee = new Employee(name, email);
-//                company.addNewStaff(newEmployee);
-//                System.out.println("New staff added successfully!");
-//                break;
-//            case 3:
-//                System.out.println("Exiting...");
-//                exit = true;
-//                break;
-//            default:
-//                System.out.println("Invalid choice. Please enter a number from 1 to 3.");
-//        }
-//    }
-    // Close scanner
-    //    scanner.close();
-    
-    
-    
+    // Method to display menu and handle user input
+    public void displayMenu() {
+        Scanner scanner = new Scanner(System.in);
+        boolean exitMenu = false;
+        
+        while (!exitMenu) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Add, modify and delete other users");
+            System.out.println("2. Change your own username and password");
+            System.out.println("3. Exit");
+            System.out.println("Enter your choice:");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    // Option 1: Add, modify, delete users
+                    System.out.println("Add, modify and delete other users");
+                    // Add code here
+                    exitMenu = true;
+                    break;
+                case 2:
+                    // Option 2: Change username and password
+                    System.out.println("Enter new username:");
+                    String newUsername = scanner.nextLine();
+                    System.out.println("Enter new password:");
+                    String newPassword = scanner.nextLine();
+
+                    // Call methods to set new username and password
+                    setUsername(newUsername); 
+                    setPassword(newPassword); 
+
+                    System.out.println("Changed user and password successfully!");
+                    exitMenu = true;
+                    break;
+                case 3:
+                    // Option 3: Exit
+                    System.out.println("Exiting...");
+                    exitMenu = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number from 1 to 3.");
+            }
+        }
+        
+        // Close scanner after loop
+        scanner.close();
+    }
 }
