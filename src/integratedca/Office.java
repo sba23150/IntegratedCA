@@ -1,5 +1,6 @@
 package integratedca;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -88,7 +89,7 @@ public class Office {
     
     ArrayList<String[]> officeStaffList = new ArrayList<>();
     
-    public void addUser(String username, String password){
+    public void addUser() throws SQLException {
         
         Scanner scanner = new Scanner(System.in);
         
@@ -107,7 +108,7 @@ public class Office {
         scanner.close();
     }
     
-    public void modifyUser(String username, String password){
+    public void modifyUser() {
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Enter Office staff name to modify:");
@@ -135,7 +136,7 @@ public class Office {
         scanner.close();
     }
     
-    public void deleteUser(String username, String password){
+    public void deleteUser(){
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Enter office staff name to delete:");

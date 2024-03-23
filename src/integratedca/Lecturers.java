@@ -25,7 +25,7 @@ public class Lecturers {
     private String password;
     
     // Constructor
-    public Lecturers(String newUsername, String newPassword) {
+    public Lecturers() {
         this.username = "lecturer";
         this.password = "lecturer";
         this.Lecturer = Lecturer;
@@ -121,7 +121,7 @@ public class Lecturers {
 
     ArrayList<String[]> lecturersList = new ArrayList<>();
     
-    public void addUser(String username, String password){
+    public void addUser(){
         
         Scanner scanner = new Scanner(System.in);
         
@@ -140,7 +140,7 @@ public class Lecturers {
         scanner.close();
     }
     
-    public void modifyUser(String username, String password){
+    public void modifyUser(){
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Enter Lecturer name to modify:");
@@ -168,7 +168,7 @@ public class Lecturers {
         scanner.close();
     }
     
-    public void deleteUser(String username, String password){
+    public void deleteUser(){
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Enter Lecturer name to delete:");

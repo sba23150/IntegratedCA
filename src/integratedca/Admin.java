@@ -4,6 +4,7 @@
  */
 package integratedca;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -43,7 +44,7 @@ public class Admin {
     }
     
     // Method to display menu and handle user input
-    public void displayMenu() {
+    public void displayMenu() throws SQLException {
         Scanner scanner = new Scanner(System.in);
         boolean exitMenu = false;
         
@@ -68,10 +69,12 @@ public class Admin {
                         case 1:
                             switch (updateTypeUser){
                                 case 1:
-                                    Office.addUser();
+                                    Office myOfficeObj = new Office();
+                                    myOfficeObj.addUser();
                                     break;
                                 case 2:
-                                    Lecturers.addUser();
+                                    Lecturers myLecturerObj = new Lecturers();
+                                    myLecturerObj.addUser();
                                     break;
                                 default:
                                     System.out.println("Invalid choice. Please type 1 for Office, 2 for Lecture");
@@ -80,10 +83,12 @@ public class Admin {
                         case 2:
                             switch (updateTypeUser){
                                 case 1:
-                                    Office.modifyUser();
+                                    Office myOfficeObj = new Office();
+                                    myOfficeObj.modifyUser();
                                     break;
                                 case 2:
-                                    Lecturers.modifyUser();
+                                    Lecturers myLecturerObj = new Lecturers();
+                                    myLecturerObj.modifyUser();
                                     break;
                                 default:
                                     System.out.println("Invalid choice. Please type 1 for Office, 2 for Lecture");
@@ -92,10 +97,12 @@ public class Admin {
                         case 3:
                             switch (updateTypeUser){
                                 case 1:
-                                    Office.deleteUser();
+                                    Office myOfficeObj = new Office();
+                                    myOfficeObj.deleteUser();
                                     break;
                                 case 2:
-                                    Lecturers.deleteUser();
+                                    Lecturers myLecturerObj = new Lecturers();
+                                    myLecturerObj.deleteUser();
                                     break;
                                 default:
                                     System.out.println("Invalid choice. Please type 1 for Office, 2 for Lecture");
