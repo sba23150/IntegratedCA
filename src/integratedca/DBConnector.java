@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 //database connection
 public class DBConnector {
-    private final String DB_URL = "jdbc:mysql://localhost/integratedCA";
+    private final String DB_URL = "jdbc:mysql://localhost/CA2";
     private final String USER = "pooa2024";
     private final String PASSWORD = "pooa2024";
        
@@ -52,4 +52,41 @@ public class DBConnector {
         System.out.println("Database connetion successful");
     }   
             
+/*method to generate A Course Report, that should contain:
+■ The name of every module
+■ The programme(course) that module is in
+■ The number of students enrolled in that module
+■ The lecturer of that module
+■ The room the module is assigned to (or “online” if it is taught online)*/
+    
+    
+    public ArrayList<Students> courseReport() throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+        PreparedStatement preparedStatement = conn.prepareStatement("SELECT \n" +
+"    courseslist.Course AS courseName,\n" +
+"    courseslist.Modules AS moduleName,\n" +
+"    courseslist.Teacher AS Lecturers,\n" +
+"    courseslist.Room AS Room,\n" +
+"    enrolment.num_students AS NumberOfStudents\n" +
+"FROM \n" +
+"    courseslist\n" +
+"JOIN \n" +
+"    enrolment ON courseslist.course = enrolment.course;");
+                
+        ResultSet rs = preparedStatement.executeQuery();
+        ArrayList<Students> courseReport = new ArrayList<>();
+        
+        while (rs.next()) {
+            String courseName = rs.getString("courseName");
+            String moduleName = rs.getString("moduleName");
+            String Lecturers = rs.getString("Lecturers");
+            String Room = rs.getString("Room");
+            String NumberOfStudents = rs.getString("NumberOfStudents");
+            courseReport.add(new course(courseName, moduleName, Lecturers, Room, NumberOfStudents));
+            System.out.println("Course Name: "+ courseName+ " - Module: " + moduleName);
+        }
+        conn.close();
+        return courseReport;
+    }
+    
 }  
