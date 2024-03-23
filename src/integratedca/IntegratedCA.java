@@ -4,6 +4,7 @@
  */
 package integratedca;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class IntegratedCA {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         // Call DB Connection
 //        try {
@@ -61,7 +62,8 @@ public class IntegratedCA {
             else if (usernameInput.equals(lecturer.getUsername()) && passwordInput.equals(lecturer.getPassword())) {
                 System.out.println("Login successful!");
                 // call the Lecturer class
-                Lecturers.displayMenu();
+                Lecturers lecturers = new Lecturers();
+                lecturers.displayMenu();
                 loggedIn = true;
             } else {
                 System.out.println("Invalid username or password. Please try again.");
