@@ -76,15 +76,15 @@ public class DBConnector {
         ResultSet rs = preparedStatement.executeQuery();
         ArrayList<Students> courseReport = new ArrayList<>();
         
-        while (rs.next()) {
-            String courseName = rs.getString("courseName");
-            String moduleName = rs.getString("moduleName");
-            String Lecturers = rs.getString("Lecturers");
-            String Room = rs.getString("Room");
-            String NumberOfStudents = rs.getString("NumberOfStudents");
-            courseReport.add(new course(courseName, moduleName, Lecturers, Room, NumberOfStudents));
-            System.out.println("Course Name: "+ courseName+ " - Module: " + moduleName);
-        }
+//        while (rs.next()) {
+//            String courseName = rs.getString("courseName");
+//            String moduleName = rs.getString("moduleName");
+//            String Lecturers = rs.getString("Lecturers");
+//            String Room = rs.getString("Room");
+//            String NumberOfStudents = rs.getString("NumberOfStudents");
+//            courseReport.add(new course(courseName, moduleName, Lecturers, Room, NumberOfStudents));
+//            System.out.println("Course Name: "+ courseName+ " - Module: " + moduleName);
+//        };
         conn.close();
         return courseReport;
     }
