@@ -8,14 +8,31 @@ package integratedca;
  *
  * @author User
  */
-public class course extends Students {
+public class course {
 
-    public course(courseName, moduleName, Lecturers, Room, NumberOfStudents) {
-        String courseName;
-        String moduleName;
-        String Lecturers;
-        String Room;
-        String NumberOfStudent;
+    String courseName;
+    String moduleName;
+    String Lecturers;
+    String Room;
+    
+    public course(String courseName, String moduleName, String Lecturers, String Room) {
+        this.courseName = courseName;
+        this.moduleName = moduleName;
+        this.Lecturers = Lecturers;
+        this.Room = Room;
+    }
+    
+    public String getcourseName(){
+        return courseName;
+    }
+    public String getmoduleName(){
+        return moduleName;
+    }
+    public String getLecturers(){
+        return Lecturers;
+    }
+    public String getRoom(){
+        return Room;
     }
     
 }
