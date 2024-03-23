@@ -74,7 +74,7 @@ public class DBConnector {
 "    enrolment ON courseslist.course = enrolment.course;");
                 
         ResultSet rs = preparedStatement.executeQuery();
-        ArrayList<Students> courseReport = new ArrayList<>();
+        //ArrayList<Students> courseReport = new ArrayList<>();
         
 //        while (rs.next()) {
 //            String courseName = rs.getString("courseName");

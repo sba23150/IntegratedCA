@@ -4,6 +4,11 @@
  */
 package integratedca;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -18,9 +23,9 @@ import java.util.Scanner;
 public class Lecturers {
     private String username;
     private String password;
-
+    
     // Constructor
-    public Lecturers() {
+    public Lecturers(String newUsername, String newPassword) {
         this.username = "lecturer";
         this.password = "lecturer";
         this.Lecturer = Lecturer;
@@ -111,6 +116,77 @@ public class Lecturers {
         }
         
         // Close scanner after loop
+        scanner.close();
+    }
+
+    ArrayList<String[]> lecturersList = new ArrayList<>();
+    
+    public void addUser(String username, String password){
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter new Lecturer name:");
+        String newLecturerName = scanner.nextLine();
+        System.out.println("Enter new username:");
+        String newUsername = scanner.nextLine();
+        System.out.println("Enter new password:");
+        String newPassword = scanner.nextLine();
+        
+        //add new username and password to lecturers list
+        String[] addUser = {newLecturerName, newUsername, newPassword};
+        lecturersList.add(addUser);
+        
+        System.out.println("New Lecturer user added successfully!");
+        scanner.close();
+    }
+    
+    public void modifyUser(String username, String password){
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter Lecturer name to modify:");
+        String lecturerName = scanner.nextLine();
+        System.out.println("Enter new username:");
+        String newUsername = scanner.nextLine();
+        System.out.println("Enter new password:");
+        String newPassword = scanner.nextLine();
+        
+        String[] addUser = {lecturerName, newUsername, newPassword};
+        
+        //first we need to find where is the lecturer that the user wants to modify
+        // Find the index of an item in the ArrayList
+        int index = lecturersList.indexOf(lecturerName);
+
+        // Check if the item exists in the ArrayList
+        if (index != -1) {
+            //modiy new username and password to lecturers list
+            lecturersList.set(index,addUser);
+        } else {
+            System.out.println(lecturerName+" not found in the list.");
+        }
+
+        System.out.println("New Lecturer user modified successfully!");
+        scanner.close();
+    }
+    
+    public void deleteUser(String username, String password){
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter Lecturer name to delete:");
+        String lecturerName = scanner.nextLine();
+        
+        //first we need to find where is the lecturer that the user wants to modify
+        // Find the index of an item in the ArrayList
+        int index = lecturersList.indexOf(lecturerName);
+
+        // Check if the item exists in the ArrayList
+        if (index != -1) {
+            //modiy new username and password to lecturers list
+            lecturersList.remove(index);
+        } else {
+            System.out.println(lecturerName+" not found in the list.");
+        }
+
+        System.out.println("New Lecturer user modified successfully!");
         scanner.close();
     }
 }

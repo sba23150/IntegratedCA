@@ -9,7 +9,7 @@ package integratedca;
  * @author Tatiana Mota - sba23150
  * GitHub: https://github.com/sba23150/IntegratedCA.git
  */
-
+//this class is based on the students table
 public class Students {
     String name;
     String email;

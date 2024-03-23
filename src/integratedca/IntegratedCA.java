@@ -4,15 +4,7 @@
  */
 package integratedca;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -27,25 +19,21 @@ public class IntegratedCA {
     public static void main(String[] args) {
 
         // Call DB Connection
-        
 //        try {
 //            DBConnector db = new DBConnector();
 //            db.getStudents();
-//            //create database 'integratedCA'
+//            //create database 'CA2'
 //            //db.createDB();
 //        } catch (SQLException ex) {
 //            Logger.getLogger(IntegratedCA.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        
-        
-        
         
         // Console input scanner to read user input
         Scanner scanner = new Scanner(System.in);
 
         Admin admin = new Admin();
         Office office = new Office();
-        Lecturers lecturer = new Lecturers();
+        Lecturers lecturer = new Lecturers(newUsername, newPassword);
         
         // Login loop
         boolean loggedIn = false;

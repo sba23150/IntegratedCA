@@ -8,6 +8,8 @@ package integratedca;
  *
  * @author User
  */
+
+//this class is based on the grades table
 public class grades {
     int id;
     String Name;

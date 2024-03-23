@@ -58,14 +58,58 @@ public class Admin {
             scanner.nextLine(); // Consume newline
 
             switch (choice) {
+                // Option 1: Add, modify, delete users
                 case 1:
-                    // Option 1: Add, modify, delete users
-                    System.out.println("Add, modify and delete other users");
-                    // Add code here
+                    System.out.println("Type 1 to Add,  2 to modify or 3 to delete other users");
+                    int updateUser = scanner.nextInt();
+                    System.out.println("Who do you want to update their details? Type 1 for Office, 2 for Lecturer");
+                    int updateTypeUser = scanner.nextInt();
+                    switch (updateUser) {
+                        case 1:
+                            switch (updateTypeUser){
+                                case 1:
+                                    Office.addUser();
+                                    break;
+                                case 2:
+                                    Lecturers.addUser();
+                                    break;
+                                default:
+                                    System.out.println("Invalid choice. Please type 1 for Office, 2 for Lecture");
+                            }
+                            break;
+                        case 2:
+                            switch (updateTypeUser){
+                                case 1:
+                                    Office.modifyUser();
+                                    break;
+                                case 2:
+                                    Lecturers.modifyUser();
+                                    break;
+                                default:
+                                    System.out.println("Invalid choice. Please type 1 for Office, 2 for Lecture");
+                            }
+                            break;
+                        case 3:
+                            switch (updateTypeUser){
+                                case 1:
+                                    Office.deleteUser();
+                                    break;
+                                case 2:
+                                    Lecturers.deleteUser();
+                                    break;
+                                default:
+                                    System.out.println("Invalid choice. Please type 1 for Office, 2 for Lecture");
+                            }
+                            break;
+                        default:
+                            System.out.println("Invalid choice. Please type 1 to Add,  2 to modify or 3 to delete other users");
+                            
+                    }
                     exitMenu = true;
                     break;
+
+                // Option 2: Change username and password
                 case 2:
-                    // Option 2: Change username and password
                     System.out.println("Enter new username:");
                     String newUsername = scanner.nextLine();
                     System.out.println("Enter new password:");
@@ -78,8 +122,9 @@ public class Admin {
                     System.out.println("Changed user and password successfully!");
                     exitMenu = true;
                     break;
+                
+                // Option 3: Exit
                 case 3:
-                    // Option 3: Exit
                     System.out.println("Exiting...");
                     exitMenu = true;
                     break;
