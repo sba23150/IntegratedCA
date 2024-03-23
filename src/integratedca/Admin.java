@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author User
+ * @author Tatiana Mota - sba2350
  * Admin
 ■ The only user available at the start
 ■ Username: admin
@@ -69,10 +69,12 @@ public class Admin {
                         case 1:
                             switch (updateTypeUser){
                                 case 1:
+                                    //call method from Office class to add user
                                     Office myOfficeObj = new Office();
                                     myOfficeObj.addUser();
                                     break;
                                 case 2:
+                                    //call method from Lecturers class to add user
                                     Lecturers myLecturerObj = new Lecturers();
                                     myLecturerObj.addUser();
                                     break;
@@ -83,10 +85,12 @@ public class Admin {
                         case 2:
                             switch (updateTypeUser){
                                 case 1:
+                                    //call method from Office class to modify user
                                     Office myOfficeObj = new Office();
                                     myOfficeObj.modifyUser();
                                     break;
                                 case 2:
+                                    //call method from Lecturers class to modify user
                                     Lecturers myLecturerObj = new Lecturers();
                                     myLecturerObj.modifyUser();
                                     break;
@@ -97,10 +101,12 @@ public class Admin {
                         case 3:
                             switch (updateTypeUser){
                                 case 1:
+                                    //call method from Office class to delete user
                                     Office myOfficeObj = new Office();
                                     myOfficeObj.deleteUser();
                                     break;
                                 case 2:
+                                    //call method from Lecturers class to delete user
                                     Lecturers myLecturerObj = new Lecturers();
                                     myLecturerObj.deleteUser();
                                     break;

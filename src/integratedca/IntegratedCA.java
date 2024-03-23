@@ -33,7 +33,7 @@ public class IntegratedCA {
 
         Admin admin = new Admin();
         Office office = new Office();
-        Lecturers lecturer = new Lecturers(newUsername, newPassword);
+        Lecturers lecturer = new Lecturers();
         
         // Login loop
         boolean loggedIn = false;
@@ -46,21 +46,23 @@ public class IntegratedCA {
             // Check if the entered username and password match the Admin's credentials
             if (usernameInput.equals(admin.getUsername()) && passwordInput.equals(admin.getPassword())) {
                 System.out.println("Login successful!");
-                loggedIn = true;
                 // call the Admin class
                 admin.displayMenu();
+                loggedIn = true;
             } 
             // Check if the entered username and password match the Office's credentials 
             else if (usernameInput.equals(office.getUsername()) && passwordInput.equals(office.getPassword())) {
                 System.out.println("Login successful!");
-                loggedIn = true;
                 // call the Office class
+                office.displayMenu();
+                loggedIn = true;
             } 
             // Check if the entered username and password match the Lecturer's credentials 
             else if (usernameInput.equals(lecturer.getUsername()) && passwordInput.equals(lecturer.getPassword())) {
                 System.out.println("Login successful!");
-                loggedIn = true;
                 // call the Lecturer class
+                Lecturers.displayMenu();
+                loggedIn = true;
             } else {
                 System.out.println("Invalid username or password. Please try again.");
             }
