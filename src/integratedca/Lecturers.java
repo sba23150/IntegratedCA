@@ -186,7 +186,7 @@ public class Lecturers {
             System.out.println(lecturerName+" not found in the list.");
         }
 
-        System.out.println("New Lecturer user modified successfully!");
+        System.out.println("Lecturer udeleted successfully!");
         scanner.close();
     }
 }

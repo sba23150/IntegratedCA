@@ -1,5 +1,6 @@
 package integratedca;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -82,6 +83,77 @@ public class Office {
         }
         
         // Close scanner after loop
+        scanner.close();
+    }
+    
+    ArrayList<String[]> officeStaffList = new ArrayList<>();
+    
+    public void addUser(String username, String password){
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter new Office staff name:");
+        String newOfficeStaffName = scanner.nextLine();
+        System.out.println("Enter new username:");
+        String newUsername = scanner.nextLine();
+        System.out.println("Enter new password:");
+        String newPassword = scanner.nextLine();
+        
+        //add new username and password to office staff list
+        String[] addUser = {newOfficeStaffName, newUsername, newPassword};
+        officeStaffList.add(addUser);
+        
+        System.out.println("New Office staff user added successfully!");
+        scanner.close();
+    }
+    
+    public void modifyUser(String username, String password){
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter Office staff name to modify:");
+        String OfficeStaffName = scanner.nextLine();
+        System.out.println("Enter new username:");
+        String newUsername = scanner.nextLine();
+        System.out.println("Enter new password:");
+        String newPassword = scanner.nextLine();
+        
+        String[] addUser = {OfficeStaffName, newUsername, newPassword};
+        
+        //first we need to find where is the office staff that the user wants to modify
+        // Find the index of an item in the ArrayList
+        int index = officeStaffList.indexOf(OfficeStaffName);
+
+        // Check if the item exists in the ArrayList
+        if (index != -1) {
+            //modiy new username and password to office staff list
+            officeStaffList.set(index,addUser);
+        } else {
+            System.out.println(OfficeStaffName + " not found in the list.");
+        }
+
+        System.out.println("New Office staff user modified successfully!");
+        scanner.close();
+    }
+    
+    public void deleteUser(String username, String password){
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter office staff name to delete:");
+        String officeStaffName = scanner.nextLine();
+        
+        //first we need to find where is the lecturer that the user wants to modify
+        // Find the index of an item in the ArrayList
+        int index = officeStaffList.indexOf(officeStaffName);
+
+        // Check if the item exists in the ArrayList
+        if (index != -1) {
+            //modiy new username and password to office staff list
+            officeStaffList.remove(index);
+        } else {
+            System.out.println(officeStaffName+" not found in the list.");
+        }
+
+        System.out.println("Office Staff successfully!");
         scanner.close();
     }
 }
